@@ -1,0 +1,585 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  height: inherit;
+  min-height: 100vh;
+  background: #f7f7f7;
+  padding: 0 10px;
+  padding-top: 60px;
+  padding-bottom: 250px;
+}
+
+h1 {
+  text-align: center;
+  color: #01ce9d;
+}
+
+.demande-form {
+  display: grid;
+  align-items: center;
+  justify-items: stretch;
+  /* height: 486px; */
+}
+
+.releveNotes-form,
+.attestationScolarite-form,
+.attestationReussite-form,
+.reclamation-form {
+  justify-items: center;
+}
+
+.demande {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 550px;
+
+  /* background-color: #ff0000; */
+  padding: 2rem 7rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.input-div {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  background: #fff;
+  outline: none;
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  transition: 0.5s;
+}
+
+.input-div label {
+  position: absolute;
+  left: 0;
+  pointer-events: none;
+  font-size: 1em;
+  color: #ccc;
+  /* color: rbga(0, 0, 0, 0.25); */
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: 0.5s;
+  /** old value */
+  /* padding: 12px; */
+  /** new values */
+  background-color: #fff;
+  padding: 0 6px;
+  margin: 12px 6px;
+}
+
+.textarea {
+  height: 47px;
+  margin-bottom: 13px;
+  resize: none;
+}
+
+.textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.input-div textarea:valid,
+.input-div textarea:focus {
+  height: 130px;
+  border: 1px solid #01cd9d;
+}
+
+.input:valid ~ label,
+.input:focus ~ label {
+  color: #01cd9d;
+  font-size: 0.65em;
+  padding: 0 10px;
+  background: #fff;
+  border-left: 1px solid #01cd9d;
+  border-right: 1px solid #01cd9d;
+  letter-spacing: 0.2em;
+  /** old value */
+  /* transform: translateX(10px) translateY(-7px); */
+  /** new value */
+  transform: translateX(10px) translateY(-20px);
+}
+
+.input-div textarea:valid ~ label,
+.input-div textarea:focus ~ label {
+  color: #01cd9d;
+  font-size: 0.65em;
+  padding: 0 10px;
+  background: #fff;
+  border-left: 1px solid #01cd9d;
+  border-right: 1px solid #01cd9d;
+  letter-spacing: 0.2em;
+  /** old value */
+  /* transform: translateX(10px) translateY(-7px); */
+  /** new value */
+  transform: translateX(10px) translateY(-20px);
+}
+
+#dateDebut,
+#dateFin {
+  color: #fff;
+  transition: 0.2s;
+}
+
+#dateDebut:valid,
+#dateDebut:focus,
+#dateFin:valid,
+#dateFin:focus {
+  color: #333;
+  transition: 1s;
+}
+
+#dateDebut:valid ~ #dateDebut::-webkit-calendar-picker-indicator,
+#dateDebut:focus ~ #dateDebut::-webkit-calendar-picker-indicator {
+  background: #333;
+}
+
+#dateDebut:valid ~ label,
+#dateDebut:focus ~ label,
+#dateFin:valid ~ label,
+#dateFin:focus ~ label {
+  background: #01cd9d;
+  color: #fff;
+  border-radius: 2px;
+}
+
+#flat_fee::-webkit-inner-spin-button {
+  background: #01cd9d;
+}
+
+.input:valid,
+.input:focus {
+  border: 1px solid #01cd9d;
+}
+
+.send-demande-btn {
+  display: inline-block;
+  position: relative;
+  width: 20%;
+  height: 50px;
+  border-radius: 5px;
+  /* margin: 1rem 0; */
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #00dba8, #01cd9d, #00e3ae);
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  background-size: 200%;
+  transition: 0.5s;
+  align-self: flex-end;
+  justify-self: center;
+  letter-spacing: 1px;
+  z-index: 9;
+}
+
+.send-demande-btn:hover {
+  background-position: right;
+}
+
+.send-releve-notes-btn,
+.send-attestation-scolarite-btn,
+.send-attestation-reussite-btn,
+.send-reclamation-btn {
+  margin-top: 30px;
+}
+
+/** Rihab part */
+
+.navbar {
+  background-color: #01ce9d;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand,
+.nav-link {
+  color: grey !important;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+  color: #01ce9d !important;
+}
+
+.form-container {
+  display: none;
+  padding: 40px;
+  background-color: white;
+  box-shadow: 0px 0px 15px rgba(4, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.form-container.active {
+  display: block;
+  opacity: 1;
+}
+
+.form-container h2 {
+  color: #676767;
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+/** Drop-down list */
+
+.dropdown {
+  width: 300px;
+  height: fit-content;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10;
+}
+
+.dropdown-reclamation {
+  width: 40%;
+}
+
+.input-box {
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  outline: 0.3mm solid rgba(0, 0, 0, 0.15);
+  border-radius: 2mm;
+  padding: 10px 15px;
+  font-family: poppins;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  margin-top: 30px;
+}
+
+.input-box::before {
+  content: 'expand_more';
+  font-family: 'Material Icons';
+  position: absolute;
+  font-size: 18px;
+  top: 50%;
+  right: 15px;
+  transform: translate(0, -50%);
+  width: fit-content;
+  height: fit-content;
+}
+.input-box.open::before {
+  content: 'expand_less';
+}
+.input-box:empty::after {
+  content: "Sélectionner l'année académique";
+  color: rgba(0, 0, 0, 0.5);
+}
+.input-box-4:empty::after {
+  content: 'Sélectionner la demande à reclamer';
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.list {
+  max-height: 250px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  background: white;
+  margin-top: 10px;
+  border-radius: 2mm;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: column;
+  max-height: 0;
+  transition: 0.25s ease-out;
+  overflow-y: auto;
+}
+.list input {
+  display: none;
+}
+.list label {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: poppins;
+  font-size: 14px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+}
+.list label .material-icons-outlined,
+.input-box .material-icons-outlined {
+  margin-right: 5px;
+  font-size: 22px;
+}
+.list label:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.list-reclamation label {
+  display: flex;
+  justify-content: space-between;
+}
+
+input:checked + label {
+  color: #01ce9d;
+  background: #edfffb;
+  padding-right: 43px;
+}
+
+input:checked + label::before {
+  content: 'done';
+  font-family: 'Material Icons';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translate(0, -50%);
+  font-size: 18px;
+}
+
+.open {
+  outline: 0.7mm solid #01ce9d;
+}
+
+.selected {
+  outline: 0.7mm solid #01ce9d;
+}
+
+.hidden {
+  display: none;
+  /* opacity: 0; */
+  /* transform: translate(0, 50%); */
+  /* transition: 1s; */
+}
+
+.textarea-reclamation {
+  margin-bottom: 0;
+}
+
+.input-div-reclamation {
+  width: 90%;
+  margin-top: 30px;
+}
+
+.input-box-4 {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 43px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+.list::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track,
+.list::-webkit-scrollbar-track {
+  background-color: #dddddd;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #01ce9d;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: #01ce9d;
+  border-radius: 18px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 5;
+}
+
+/** Intro */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h4 {
+  margin-bottom: 25px;
+  color: #8d0d0d;
+}
+
+.form-intro {
+  width: 440px;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(4, 0, 0, 0.1);
+  margin-top: 15px;
+}
+
+.avatar {
+  width: 100px;
+}
+
+.form-intro h2 {
+  font-size: 2.9rem;
+  text-transform: uppercase;
+  margin: 15px 0;
+  color: #333;
+}
+
+.input-div-intro {
+  position: relative;
+  display: grid;
+  grid-template-columns: 7% 93%;
+  margin: 25px 0;
+  padding: 5px 0;
+  border-bottom: 2px solid #d9d9d9;
+}
+
+.input-div-intro:after,
+.input-div-intro:before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #38d39f;
+  transition: 0.3s;
+}
+
+.input-div-intro:after {
+  right: 50%;
+}
+
+.input-div-intro:before {
+  left: 50%;
+}
+
+.input-div-intro.focus .i i {
+  color: #38d39f;
+}
+
+.input-div-intro.focus div h5 {
+  top: -5px;
+  font-size: 15px;
+}
+
+.input-div-intro.focus:after,
+.input-div-intro.focus:before {
+  width: 50%;
+}
+
+.input-div-intro.one {
+  margin-top: 0;
+}
+
+.input-div-intro.two {
+  margin-bottom: 4px;
+}
+
+.input-div-intro.three {
+  margin-bottom: 4px;
+}
+
+.i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.i i {
+  color: #d9d9d9;
+  transition: 0.3s;
+  font-size: 22px;
+}
+
+.input-div-intro > div {
+  position: relative;
+  height: 45px;
+}
+
+.input-div-intro > div h5 {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.input-intro {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  color: #555;
+}
+
+.btn-intro {
+  display: block;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  background-size: 200%;
+  transition: 0.5s;
+}
+
+.btn-intro:hover {
+  background-position: right;
+}
+
+/* .title {
+  font-family: poppins;
+  font-size: small;
+  font-weight: 500;
+  margin-bottom: 10px;
+} */
